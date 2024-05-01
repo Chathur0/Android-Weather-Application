@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -97,7 +100,8 @@
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         tools:layout_editor_absoluteX="23dp"
-                        tools:layout_editor_absoluteY="204dp" />
+                        tools:layout_editor_absoluteY="204dp"
+                        tools:ignore="DuplicateIds" />
 
                     <TextView
                         android:id="@+id/sCountry"
@@ -108,7 +112,8 @@
                         android:textSize="12dp"
                         android:textColor="@color/black"
                         tools:layout_editor_absoluteX="23dp"
-                        tools:layout_editor_absoluteY="204dp" />
+                        tools:layout_editor_absoluteY="204dp"
+                        tools:ignore="DuplicateIds" />
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
@@ -257,6 +262,7 @@
             android:layout_below="@id/time"
             />
         <TextView
+            android:id="@+id/regional"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -266,9 +272,459 @@
             android:layout_marginTop="10dp"
             android:layout_below="@id/date"
             />
+
+        <RelativeLayout
+            android:id="@+id/newContainer"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/regional"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:background="@drawable/main_countainor"
+            >
+
+            <TableLayout
+                android:id="@+id/tempContainor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="13dp"
+                android:gravity="center">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        android:layout_marginRight="5dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/lCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/lIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/location"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Location"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lCon"
+                            android:layout_marginTop="10dp"
+                            android:text="Asia/Colombo"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/tCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/tIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" app:srcCompat="@drawable/nature"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Temperature"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tCon"
+                            android:layout_marginTop="10dp"
+                            android:text="27°C"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        android:layout_marginRight="5dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/hCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/hIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/water"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Humidity"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/hCon"
+                            android:layout_marginTop="10dp"
+                            android:text="89%"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/wCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/wIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/wind"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wind Speed"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/wCon"
+                            android:layout_marginTop="10dp"
+                            android:text="9 km/h"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        android:layout_marginRight="5dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/rCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/rIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/world"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Region"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rCon"
+                            android:layout_marginTop="10dp"
+                            android:text="Western"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/coCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/coIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/countries"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Country"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/coCon"
+                            android:layout_marginTop="10dp"
+                            android:text="Sri Lanka"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        android:layout_marginRight="5dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/laCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/laIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/latitude"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Latitude"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/laCon"
+                            android:layout_marginTop="10dp"
+                            android:text="6.9"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/loCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/loIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/longitude"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Longitude"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/loCon"
+                            android:layout_marginTop="10dp"
+                            android:text="79.89"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            />
+                    </RelativeLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@drawable/min_countainor"
+                        android:padding="10dp"
+                        android:layout_span="2"
+                        >
+                        <LinearLayout
+                            android:id="@+id/cCon"
+                            android:layout_width="160dp"
+                            android:gravity="center"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/cIcon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:srcCompat="@drawable/weather_c"
+                                android:layout_marginRight="8dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Condition"
+                                android:textSize="15dp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cCon"
+                            android:layout_marginTop="10dp"
+                            android:text="Heavy rain with thunder"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="bold"/>
+
+                    </RelativeLayout>
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
 
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
