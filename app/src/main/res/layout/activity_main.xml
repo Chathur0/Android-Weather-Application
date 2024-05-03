@@ -7,21 +7,40 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="390dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/searchBox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/weather" />
+    <LinearLayout
+        android:id="@+id/imageCon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/menuBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="40dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/menu"
+            android:onClick="onMenuButtonClick"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="284dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/weather" />
+    </LinearLayout>
+
+
+
 
     <EditText
         android:id="@+id/searchBox"
@@ -33,13 +52,13 @@
         android:ems="10"
         android:inputType="text"
         android:paddingLeft="30px"
-        android:hint="Enter City"
+        android:hint="@string/enter_city"
         android:textColorHint="#DC5A5A5A"
         app:layout_constraintBottom_toTopOf="@+id/searchBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageCon" />
 
         <TableLayout
             android:id="@+id/searchResult"
@@ -48,25 +67,24 @@
             android:layout_marginStart="23dp"
             android:layout_marginTop="-1dp"
             android:background="@drawable/rounded_edittext_background"
-            android:padding="8dp"
             android:elevation="8dp"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchBox">
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
 
                     <TextView
                         android:id="@+id/sCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Colombo"
+                        android:text="@string/colombo"
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         tools:layout_editor_absoluteX="23dp"
@@ -77,12 +95,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/sCity"
-                        android:text="Sri Lanka"
+                        android:text="@string/sri_lanka"
                         android:textSize="12dp"
                         android:textColor="@color/black"
                         tools:layout_editor_absoluteX="23dp"
                         tools:layout_editor_absoluteY="204dp" />
+
                 </RelativeLayout>
+
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -90,13 +110,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
                     <TextView
                         android:id="@+id/sCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Long Beach"
+                        android:text="@string/long_beach"
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         tools:layout_editor_absoluteX="23dp"
@@ -108,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/sCity"
-                        android:text="United State of America"
+                        android:text="@string/united_state_of_america"
                         android:textSize="12dp"
                         android:textColor="@color/black"
                         tools:layout_editor_absoluteX="23dp"
@@ -123,9 +143,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
-        android:text="Search"
+        android:text="@string/search"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBox" />
@@ -135,6 +155,7 @@
         android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/containerbackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +181,7 @@
                     android:id="@+id/city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Colombo"
+                    android:text="@string/colombo"
                     android:textColor="#FFFFFF"
                     android:textSize="30sp"
                     android:textStyle="bold" />
@@ -198,7 +219,7 @@
                         android:id="@+id/cBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="\u00B0C"
+                        android:text="@string/u00b0c"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
@@ -207,7 +228,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="  /  "
+                        android:text="@string/btnDivider"
                         android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -215,7 +236,7 @@
                         android:id="@+id/fBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="\u00B0F"
+                        android:text="@string/u00b0f"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         android:textColor="#56FFFFFF"
@@ -233,7 +254,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:textAlignment="center"
-            android:text="Heavy rain with thunder"
+            android:text="@string/heavy_rain_with_thunder"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -246,7 +267,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:text="11:42:32 PM"
+            android:text="@string/_11_42_32_pm"
             android:layout_marginTop="10dp"
             android:layout_below="@id/cloudy"
              />
@@ -258,7 +279,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:text="4/30/2024"
+            android:text="@string/_5_2_2024"
             android:layout_below="@id/time"
             />
         <TextView
@@ -268,7 +289,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Regional date and time"
+            android:text="@string/regional_date_and_time"
             android:layout_marginTop="10dp"
             android:layout_below="@id/date"
             />
@@ -321,7 +342,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Location"
+                                android:text="@string/location"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -333,7 +354,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/lCon"
                             android:layout_marginTop="10dp"
-                            android:text="Asia/Colombo"
+                            android:text="@string/asia_colombo"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -363,7 +384,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Temperature"
+                                android:text="@string/temperature"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -375,7 +396,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tCon"
                             android:layout_marginTop="10dp"
-                            android:text="27°C"
+                            android:text="@string/_27_c"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -415,7 +436,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Humidity"
+                                android:text="@string/humidity"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -427,7 +448,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/hCon"
                             android:layout_marginTop="10dp"
-                            android:text="89%"
+                            android:text="@string/_89"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -458,7 +479,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Wind Speed"
+                                android:text="@string/wind_speed"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -470,7 +491,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/wCon"
                             android:layout_marginTop="10dp"
-                            android:text="9 km/h"
+                            android:text="@string/_9_km_h"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -510,7 +531,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Region"
+                                android:text="@string/region"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -522,7 +543,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/rCon"
                             android:layout_marginTop="10dp"
-                            android:text="Western"
+                            android:text="@string/western"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -553,7 +574,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Country"
+                                android:text="@string/country"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -565,7 +586,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/coCon"
                             android:layout_marginTop="10dp"
-                            android:text="Sri Lanka"
+                            android:text="@string/sri_lanka"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -605,7 +626,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Latitude"
+                                android:text="@string/latitude"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -617,7 +638,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/laCon"
                             android:layout_marginTop="10dp"
-                            android:text="6.9"
+                            android:text="@string/_6_9"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -648,7 +669,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Longitude"
+                                android:text="@string/longitude"
                                 android:textSize="15dp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
@@ -660,7 +681,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/loCon"
                             android:layout_marginTop="10dp"
-                            android:text="79.89"
+                            android:text="@string/_79_89"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="15dp"
@@ -675,6 +696,7 @@
                     android:layout_marginTop="5dp">
 
                     <RelativeLayout
+                        android:id="@+id/condition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -695,12 +717,13 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:srcCompat="@drawable/weather_c"
-                                android:layout_marginRight="8dp"/>
+                                android:layout_marginEnd="8dp"
+                                android:contentDescription="@string/condition" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Condition"
-                                android:textSize="15dp"
+                                android:text="@string/condition"
+                                android:textSize="15sp"
                                 android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:textColor="@color/black" />
@@ -711,20 +734,29 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/cCon"
                             android:layout_marginTop="10dp"
-                            android:text="Heavy rain with thunder"
+                            android:text="@string/heavy_rain_with_thunder"
                             android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:textStyle="bold"/>
-
                     </RelativeLayout>
                 </TableRow>
             </TableLayout>
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/more"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newContainer"
+            android:background="@drawable/button_background"
+            android:text="@string/more"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:onClick="onMoreBtnClick"
+            />
     </RelativeLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
